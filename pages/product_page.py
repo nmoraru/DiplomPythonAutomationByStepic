@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
-import re
 
 
 class ProductPage(BasePage):
@@ -15,8 +14,8 @@ class ProductPage(BasePage):
 
     def should_be_correct_product_name_to_success_message(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
-        product_name_to_suceess_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_TO_SUCCESS_MESSAGE).text
-        assert re.search(product_name, product_name_to_suceess_message), "Incorrect product name to success message"
+        product_name_to_success_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_TO_SUCCESS_MESSAGE).text
+        assert product_name == product_name_to_success_message, "Incorrect product name to success message"
 
     def shoul_be_correct_product_price_to_success_message(self):
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
