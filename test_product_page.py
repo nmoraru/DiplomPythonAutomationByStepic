@@ -33,11 +33,11 @@ class TestUserAddToBasketFromProductPage():
     
 
 @pytest.mark.need_review
-def test_guest_can_add_product_to_basket(browser, link):
+def test_guest_can_add_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
     page.add_product_to_basket()
-    page.solve_quiz_and_get_code()
     page.should_be_correct_success_message()
 
 @pytest.mark.need_review
